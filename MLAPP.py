@@ -28,12 +28,11 @@ def load_demo_data():
     return data
 
 # Streamlit APP title
-st.title("Machine Learning Model Training App")
+st.title("🖥️ Machine Learning Model Training App")
 
 # Display description of the app
 st.write("""
-Upload your dataset, choose your model, and see the results.
-This app allows you to train and evaluate different machine learning models on your own dataset or use the DEMO dataset.
+This app allows you to train and evaluate different machine learning models on your own dataset or use the DEMO dataset.🤩
 """)
 
 # Upload or select DEMO dataset
@@ -49,7 +48,7 @@ data = None
 # Show the upload button or use demo button only if no data is loaded
 if not st.session_state['data_loaded']:
     # Upload data
-    uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
+    uploaded_file = st.file_uploader("⬇️Upload your CSV file", type=["csv"])
 
     # Use the DEMO file if selected
     if st.button("Use DEMO File"):
@@ -69,16 +68,16 @@ if not st.session_state['data_loaded']:
         except Exception as e:
             st.error(f"Error reading the uploaded file: {e}")
 else:
-    st.write("### Data successfully loaded!")
+    st.write("### Data successfully loaded!🎉🎉🎉")
     data = st.session_state['data']
 
 # Feature selection and model training (only show this if data is loaded)
 if st.session_state['data_loaded'] and data is not None:
-    st.write("### Select Features and Label")
-    st.write("Select the columns you want to use as features and the column you want to predict (label).")
+    st.write("### 🏷️Select Features and Label")
     
-    features = st.multiselect("Select Feature Columns", options=data.columns.tolist())
-    label = st.selectbox("Select Label Column", options=data.columns.tolist())
+    
+    features = st.multiselect("⬇️Select Feature Columns", options=data.columns.tolist())
+    label = st.selectbox("⬇️Select Label Column", options=data.columns.tolist())
     
     if features and label:
         if label in features:
@@ -93,8 +92,8 @@ if st.session_state['data_loaded'] and data is not None:
                 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
                 # Select a machine learning model
-                st.write("### Select a Machine Learning Model")
-                model_choice = st.selectbox("Choose a model", list(models.keys()))
+                st.write("### 🔷Select a Machine Learning Model")
+                model_choice = st.selectbox("⬇️Choose a model", list(models.keys()))
 
                 # Train the model
                 if st.button("Train Model"):
@@ -108,31 +107,35 @@ if st.session_state['data_loaded'] and data is not None:
 
                         # Display results
                         accuracy = accuracy_score(y_test, y_pred)
-                        st.write(f"Accuracy: {accuracy:.2f}")
+                        st.write(f"### 📌Accuracy: {accuracy:.2f}")
+
+                        st.write("""
+                         **💠What does this accuracy mean?**
+                        
+                        The accuracy is the proportion of correctly predicted instances out of all instances. A higher accuracy indicates that the model is better at predicting the correct class. However, accuracy alone can be misleading if the classes are imbalanced, which is why we also look at other metrics like precision, recall, and the confusion matrix.
+                        """)
+
+                    
 
                         # Display the results of classification
-                        st.write("### Classification Report")
+                        st.write("### 📝Classification Report")
                         st.write("The classification report provides detailed metrics for each class, including precision, recall, and F1-score:")
                         st.text(classification_report(y_test, y_pred))
 
                         # Explain the classification Report
                         st.write("""
-                        **Understanding the Classification Report:**
+                        **💠Understanding the Classification Report:**
                         
                         - **Precision**: The ratio of correctly predicted positive observations to the total predicted positives. High precision indicates a low false positive rate.
                         - **Recall**: The ratio of correctly predicted positive observations to all observations in the actual class. High recall indicates a low false negative rate.
                         - **F1-Score**: The weighted average of precision and recall. It is useful when you want a balance between precision and recall.
                         """)
 
-                        st.write("""
-                         **What does this accuracy mean?**
-                        
-                        The accuracy is the proportion of correctly predicted instances out of all instances. A higher accuracy indicates that the model is better at predicting the correct class. However, accuracy alone can be misleading if the classes are imbalanced, which is why we also look at other metrics like precision, recall, and the confusion matrix.
-                        """)
+                    
 
                         # Confusion Matrix
                         cm = confusion_matrix(y_test, y_pred)
-                        st.write("### Confusion Matrix:")
+                        st.write("### 📊Confusion Matrix:")
                         st.write("The confusion matrix shows the number of correct and incorrect predictions made by the model:")
                         fig, ax = plt.subplots()
                         sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=ax)
@@ -140,7 +143,7 @@ if st.session_state['data_loaded'] and data is not None:
 
                          # Explain confusion matrix
                         st.write("""
-                        **Understanding the Confusion Matrix:**
+                        **💠Understanding the Confusion Matrix:**
                         
                         - **True Positives (TP)**: The model correctly predicted the positive class.
                         - **True Negatives (TN)**: The model correctly predicted the negative class.
@@ -153,9 +156,9 @@ if st.session_state['data_loaded'] and data is not None:
                         # ROC Curve
                         fpr, tpr, _ = roc_curve(y_test, y_prob)
                         roc_auc = auc(fpr, tpr)
-                        st.write("### ROC Curve")
+                        st.write("### 📈ROC Curve")
                         st.write("The ROC curve shows the trade-off between sensitivity (recall) and specificity for every possible classification threshold:")
-                        st.write(f"ROC AUC: {roc_auc:.2f}")
+                        st.write(f"**ROC AUC**: {roc_auc:.2f}")
                         fig_roc, ax_roc = plt.subplots()
                         ax_roc.plot(fpr, tpr, color='blue', lw=2, label=f'ROC curve (area = {roc_auc:.2f})')
                         ax_roc.plot([0, 1], [0, 1], color='gray', linestyle='--')
@@ -169,7 +172,7 @@ if st.session_state['data_loaded'] and data is not None:
 
                         # Explain ROC curve
                         st.write("""
-                        **Interpreting the ROC Curve:**
+                        **💠Interpreting the ROC Curve:**
                         
                         The ROC curve plots the true positive rate (recall) against the false positive rate (1 - specificity) at various threshold settings.
                         - **AUC (Area Under the Curve)**: AUC provides an aggregate measure of the model's performance across all classification thresholds. A higher AUC value indicates a better performing model.
