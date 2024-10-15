@@ -23,7 +23,8 @@ This app provides a user-friendly interface to upload datasets, select machine l
 
 ```bash
 git clone https://github.com/yourusername/ml-streamlit-app.git
-cd ml-streamlit-app```
+cd ml-streamlit-app
+```
 
 ### 2. Install Dependencies
 
@@ -31,12 +32,14 @@ Ensure that you have Python 3.7+ installed. Install the required dependencies us
 
 ```bash
 pip install -r requirements.txt
+```
 
 ### 3. Run the Streamlit App
 To launch the app, run the following command:
 
 ```bash
 streamlit run app.py
+```
 
 This will open the app in your browser at http://localhost:8501.
 
@@ -54,7 +57,7 @@ This will open the app in your browser at http://localhost:8501.
 **Confusion Matrix:** Visualized as a heatmap to show correct and incorrect predictions.
 **ROC Curve**: Displays the trade-off between sensitivity and specificity, with the Area Under the Curve (AUC) provided.
 
-##💡 Interpreting the Results
+## 💡 Interpreting the Results
 **Accuracy**: A higher accuracy indicates better model performance but should be considered along with other metrics, especially for imbalanced data.
 **Classification Report**: Explains precision, recall, and F1-score for each class.
 **Confusion Matrix**: Helps understand where the model makes errors.
