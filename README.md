@@ -23,7 +23,7 @@ This app provides a user-friendly interface to upload datasets, select machine l
 
 ```bash
 git clone https://github.com/yourusername/ml-streamlit-app.git
-cd ml-streamlit-app
+cd ml-streamlit-app```
 
 ### 2. Install Dependencies
 
