@@ -44,14 +44,14 @@ streamlit run app.py
 This will open the app in your browser at http://localhost:8501.
 
 ## 📝How It Works
-- **1.Upload or Use Demo Data**: Upload your CSV file or use the built-in breast cancer dataset.
-- **2.Select Features and Label**: Choose which columns in your dataset are features and which column is the label (target variable).
-- **3.Model Training**: Select a machine learning model to train.
-- **4.View Results**: Once the model is trained, the app will display:
-  - **-Accuracy**: Proportion of correctly predicted instances.
-  - **-Classification Report**: Provides detailed metrics for each class.
-  - **-Confusion Matrix**: Shows the true positives, true negatives, false positives, and false negatives.
-  - **-ROC Curve**: A graphical representation of the model's performance, with the AUC value provided.
+- **1. Upload or Use Demo Data**: Upload your CSV file or use the built-in breast cancer dataset.
+- **2. Select Features and Label**: Choose which columns in your dataset are features and which column is the label (target variable).
+- **3. Model Training**: Select a machine learning model to train.
+- **4. View Results**: Once the model is trained, the app will display:
+  - **- Accuracy**: Proportion of correctly predicted instances.
+  - **- Classification Report**: Provides detailed metrics for each class.
+  - **- Confusion Matrix**: Shows the true positives, true negatives, false positives, and false negatives.
+  - **- ROC Curve**: A graphical representation of the model's performance, with the AUC value provided.
 
 ## 🎉 Example Output
 - **Confusion Matrix:** Visualized as a heatmap to show correct and incorrect predictions.
