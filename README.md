@@ -20,7 +20,7 @@ This app provides a user-friendly interface to upload datasets, select machine l
 ## 🛠️ Setup and Installation
 
 ### 1. Clone the Repository
-
+First, clone the repository to your local machine using Git:
 ```bash
 git clone https://github.com/yourusername/ml-streamlit-app.git
 cd ml-streamlit-app
@@ -33,6 +33,7 @@ Ensure that you have Python 3.7+ installed. Install the required dependencies us
 ```bash
 pip install -r requirements.txt
 ```
+This will install all the necessary libraries for running the app.
 
 ### 3. Run the Streamlit App
 To launch the app, run the following command:
