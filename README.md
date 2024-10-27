@@ -48,6 +48,7 @@ This will open the app in your browser at http://localhost:8501.
 - **1. Upload or Use Demo Data**: Upload your CSV file or use the built-in breast cancer dataset.
 - **2. Select Features and Label**: Choose which columns in your dataset are features and which column is the label (target variable).
 - **3. Model Training**: Select a machine learning model to train.
+![App Screenshot]("C:\Users\wang0\Desktop\UCL ME\2024\Select_feature_label_model.png")
 - **4. View Results**: Once the model is trained, the app will display:
   - **- Accuracy**: Proportion of correctly predicted instances.
   - **- Classification Report**: Provides detailed metrics for each class.
